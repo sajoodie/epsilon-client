@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>MIS3502 Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 4 References -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Link to FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Your custom JavaScript -->
+    <script src="js/app.js"></script>
+
+    <!-- Link to image for the favicon -->
+    <link rel="icon" href="images/TU100x100.png">
+</head>
+
+<body>
+
+<!-- Top Navigation Bar -->
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+    <!-- Logo -->
+      <a class ="navbar-brand" href="index.html">
+          <img alt="MIS3502 - TO Logo" src="images/TU100x100.png" style="width:40px;">
+          &nbsp;&nbsp;MIS3502
+      </a>
+
+    <!-- Toggler Icon for responsiveness -->
+    <button id="toggle-icon" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <!--Menu sets on the left -->
+        <ul class="navbar-nav mr-auto">
+        </ul>
+    <!--Menu sets on the right -->
+    <!--Each individual item can be secured by adding the class: secured -->
+        <ul class="navbar-nav ml-auto">
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-ABC"><i class="fa fa-list"></i> ABC Links </a>
+                </li>
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-AAA"><i class="fa fa-link"></i> Option AAA </a>
+                </li>
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-BBB"><i class="fa fa-link"></i> Option BBB </a>
+                </li>
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-CCC"><i class="fa fa-link"></i> Option CCC </a>
+                </li>
+                <li class="nav-item secured">
+                    <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+<br><br><br><br>
+
+<!--Start container for BS4 (Bootstrap 4) formatting-->
+<div class="container-fluid">
+
+    <div class="row text-center">
+        <div class="col-md-12">
+			&nbsp; <!-- place holder for additional top row content -->
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-2"></div>
+
+		<div class="col-md-8 content-wrapper " id="div-login" style="display: none;">
+                <form id='form-login'>
+				<label for="username">User name:</label>
+				<input type="text" name="username" id="username" class="form-control" >
+				<label for="password">Password:</label>
+                <input type="password" name="password" id="password" class="form-control" >
+                <br>
+				<div class="text-center">
+				<input type="button" value="Login" name="btnLogin" id="btnLogin" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                </div>
+                <br>
+                <div id='login_message' class="alert alert-danger text-center" style="display:none;">
+                </div>
+			</form>
+		</div>
+
+        <div class="col-md-8 content-wrapper " id="div-ABC"  style="display: none;">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action active"><b>A List of links </b></div>
+                <a class="list-group-item list-group-item-action">A <i class="fa fa-angle-double-right pull-right"></i></a>
+                <a class="list-group-item list-group-item-action">B <i class="fa fa-angle-double-right pull-right"></i></a>
+                <a class="list-group-item list-group-item-action">C <i class="fa fa-angle-double-right pull-right"></i></a>
+                </div>
+        </div>
+
+
+		<div class="col-md-8 content-wrapper " id="div-AAA" style="display: none;">
+			<div>
+                AAA Content goes here.
+            </div>
+		</div>
+		
+		<div class="col-md-8 content-wrapper " id="div-BBB" style="display: none;">
+			<div>
+                BBB Content goes here.
+            </div>
+		</div>
+		
+		<div class="col-md-8 content-wrapper " id="div-CCC" style="display: none;">
+			<div>
+                CCC Content goes here.
+            </div>
+		</div>
+
+    <div class="col-md-2"></div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <div>
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+</div> <!-- container //-->
+
+<br>
+    <div class="container-fluid bg-dark text-white">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            &copy; 2019 MIS3502
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+				&nbsp; <!-- place holder for additional footer content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
