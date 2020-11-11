@@ -78,5 +78,31 @@ $(document).ready(function (){
 	$('#btnLogin').click(function(){
 		loginController();
 	});
+	
+	$(".nav-link").click(function(){
+		$("#result").hide();
+		
+	});
+
+	$('#btnC02').click(function(){
+		$("#result").show();
+		$("#div-Gas").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").hide(); 	/* hide all content-wrappers */
+		$("#div-C02").show(); /* show the chosen content wrapper */
+	});
+
+	$('#btnGas').click(function(){
+		$("#result").show();
+		$("#div-C02").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").hide(); 	/* hide all content-wrappers */
+		$("#div-Gas").show(); /* show the chosen content wrapper */
+	});
+
+	$('#btnCalories').click(function(){
+		$("#result").show();
+		$("#div-Gas").hide(); 	/* hide all content-wrappers */
+		$("#div-C02").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").show(); /* show the chosen content wrapper */
+	});
 		
 }); /* end the document ready event*/
