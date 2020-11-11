@@ -44,16 +44,16 @@
     <!--Each individual item can be secured by adding the class: secured -->
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-ABC"><i class="fa fa-list"></i> ABC Links </a>
+                    <a class="nav-link" href="#div-health"><i class="fa fa-list"></i>Health Information</a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-AAA"><i class="fa fa-link"></i> Option AAA </a>
+                    <a class="nav-link" href="#div-results"><i class="fa fa-link"></i>Leaderboard</a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-BBB"><i class="fa fa-link"></i> Option BBB </a>
+                    <a class="nav-link" href="#div-emissions"><i class="fa fa-link"></i>Emissions Saved</a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-CCC"><i class="fa fa-link"></i> Option CCC </a>
+                    <a class="nav-link" href="#div-history"><i class="fa fa-link"></i>History</a>
                 </li>
                 <li class="nav-item secured">
                     <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i>Logout</a>
@@ -102,9 +102,21 @@
         </div>
 
 
-		<div class="col-md-8 content-wrapper " id="div-AAA" style="display: none;">
+		<div class="col-md-8 content-wrapper " id="div-health" style="display: none;">
 			<div>
-                AAA Content goes here.
+                <form id='form-health'>
+                    <label for="height">Height:</label>
+                    <input type="text" name="height" id="height" class="form-control" >
+                    <label for="weight">Weight(lbs):</label>
+                    <input type="weight" name="weight" id="weight" class="form-control" >
+                    <br>
+                    <div class="text-center">
+                    <input type="button" value="Enter" name="btnHealth" id="btnHealth" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                    </div>
+                    <br>
+
+                </form>
+
             </div>
 		</div>
 		
