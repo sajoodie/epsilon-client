@@ -79,6 +79,13 @@ $(document).ready(function (){
 		loginController();
 	});
 	
+	$('#btnLogin').click(function(){
+		$(".content-wrapper").hide();
+	$("#div-health").show();
+		 	
+	});
+	
+	
 	$(".nav-link").click(function(){
 		$("#result").hide();
 		
