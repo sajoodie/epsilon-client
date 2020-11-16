@@ -2,6 +2,7 @@
 
 /* SOME CONSTANTS */
 var endpoint01 = "http://misdemo.temple.edu/auth";
+var endpoint02 = "http://54.91.79.37:8220";
 localStorage.usertoken = 0;
 localStorage.lastnavlink = '';
 
