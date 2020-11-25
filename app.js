@@ -8,6 +8,23 @@ localStorage.lastnavlink = '';
 
 /* SUPPORTING FUNCTIONS */
 
+var refreshHealthMessage = function(){
+	var the_serialized_data = $("#form-health").serialize();
+	console.log(the_serialized_data);
+	$.getJSON(endpoint02+"/health/",the_serialized_data,function(data){
+		console.log(data);
+		$("#health_message").html(data);
+
+		
+});
+}
+
+var shoot = function(){
+	var the_serialized_data = $("#form-game").serialize();
+	console.log(the_serialized_data);
+	$.getJSON(endpoint02+"/shoot/",the_serialized_data,function(data){
+		console.log(data);
+
 var navigationControl = function(the_link){
 
 	/* manage the content that is displayed */
