@@ -19,11 +19,15 @@ var refreshHealthMessage = function(){
 });
 }
 
-var shoot = function(){
-	var the_serialized_data = $("#form-game").serialize();
+var leaderboard = function(){
+	var the_serialized_data = $("#div-leaderboard").serialize();
 	console.log(the_serialized_data);
-	$.getJSON(endpoint02+"/shoot/",the_serialized_data,function(data){
+	$.getJSON(endpoint02+"/leaderboard/",the_serialized_data,function(data){
 		console.log(data);
+		$("#leaderboard_message").html(data);
+		});
+
+}
 
 var navigationControl = function(the_link){
 
