@@ -1,8 +1,7 @@
 "use strict";
-
 /* SOME CONSTANTS */
 var endpoint01 = "http://misdemo.temple.edu/auth";
-var endpoint02 = "http://54.91.79.37:8220";
+var endpoint02 = "http://54.91.79.37:8201";
 localStorage.usertoken = 0;
 localStorage.lastnavlink = '';
 
@@ -32,53 +31,55 @@ var leaderboardco2 = function(){
     });
 	}
 
-var leaderboardgas = function(){
+	var leaderboardgas = function(){
 
-	let the_serialized_data = 'usertoken='+localStorage.usertoken;
+		let the_serialized_data = 'usertoken='+localStorage.usertoken;
 	
-	$.ajax({
-		url: endpoint02 + '/leaderboardgas',
-		data: the_serialized_data,
-		type: 'GET',
-		success: function(results){
-			console.log(results);
-			$('#div-Gas').html("<tr><th>usertoken</th><th> Gas Saved </th></tr>");
-	
-			for(var i =0; i < results.length; i++){
-				let gas = results[i]['gas'];
-				let usertoken = results[i]['usertoken'];
-					   
-				$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas +'</td></tr>');
-	
-				};
-		}
-	
-		});
-		}
-	
-var leaderboardcalories = function(){
-
-	let the_serialized_data = 'usertoken='+localStorage.usertoken;
-		
 		$.ajax({
-			url: endpoint02 + '/leaderboardcalories',
+			url: endpoint02 + '/leaderboardgas',
 			data: the_serialized_data,
 			type: 'GET',
 			success: function(results){
 				console.log(results);
-				$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
-		
+				$('#div-Gas').html("<tr><th>usertoken</th><th> Gas Saved </th></tr>");
+	
 				for(var i =0; i < results.length; i++){
-						let calories = results[i]['calories'];
+						let gas = results[i]['gas'];
 						let usertoken = results[i]['usertoken'];
+					   
+						$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas +'</td></tr>');
+	
+				};
+			}
+	
+		});
+		}
+	
+		var leaderboardcalories = function(){
+
+			let the_serialized_data = 'usertoken='+localStorage.usertoken;
+		
+			$.ajax({
+				url: endpoint02 + '/leaderboardcalories',
+				data: the_serialized_data,
+				type: 'GET',
+				success: function(results){
+					console.log(results);
+					$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
+		
+					for(var i =0; i < results.length; i++){
+							let calories = results[i]['calories'];
+							let usertoken = results[i]['usertoken'];
 						   
-		$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
+							$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
 		
-	};
-	}
+					};
+				}
 		
-	});
-}
+			});
+			}
+
+
 
 var navigationControl = function(the_link){
 
@@ -154,26 +155,29 @@ $(document).ready(function (){
 	
 	$('#btnLogin').click(function(){
 		$(".content-wrapper").hide();
-	$("#div-health").show();
-		 	
+		$("#div-form").show();
 	});
 	
 	
 	$(".nav-link").click(function(){
 		$("#result").hide();
-		
 	});
 
-	$('#btnC02').click(function(){
+	$("#btnForm").click(function(){
+		$("#div-form").hide();
+		$("#div-formresult").show();
+	})
+
+	$('#btnCo2').click(function(){
 		$("#result").show();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
-		$("#div-C02").show(); /* show the chosen content wrapper */
+		$("#div-Co2").show(); /* show the chosen content wrapper */
 	});
 
 	$('#btnGas').click(function(){
 		$("#result").show();
-		$("#div-C02").hide(); 	/* hide all content-wrappers */
+		$("#div-Co2").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Gas").show(); /* show the chosen content wrapper */
 	});
@@ -181,8 +185,10 @@ $(document).ready(function (){
 	$('#btnCalories').click(function(){
 		$("#result").show();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
-		$("#div-C02").hide(); 	/* hide all content-wrappers */
+		$("#div-Co2").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").show(); /* show the chosen content wrapper */
 	});
+
+
 		
 }); /* end the document ready event*/
