@@ -8,25 +8,76 @@ localStorage.lastnavlink = '';
 
 /* SUPPORTING FUNCTIONS */
 
-var refreshHealthMessage = function(){
-	var the_serialized_data = $("#form-health").serialize();
-	console.log(the_serialized_data);
-	$.getJSON(endpoint02+"/health/",the_serialized_data,function(data){
-		console.log(data);
-		$("#health_message").html(data);
+var leaderboardco2 = function(){
 
-		
-});
-}
+    let the_serialized_data = 'usertoken='+localStorage.usertoken;
 
-var leaderboard = function(){
-	var the_serialized_data = $("#div-leaderboard").serialize();
-	console.log(the_serialized_data);
-	$.getJSON(endpoint02+"/leaderboard/",the_serialized_data,function(data){
-		console.log(data);
-		$("#leaderboard_message").html(data);
+    $.ajax({
+        url: endpoint02 + '/leaderboardco2',
+        data: the_serialized_data,
+        type: 'GET',
+        success: function(results){
+            console.log(results);
+            $('#div-Co2').html("<tr><th>usertoken</th><th>Co2 Emissions Saved</th></tr>");
+
+            for(var i =0; i < results.length; i++){
+                    let co2emissions = results[i]['co2emissions'];
+                    let usertoken = results[i]['usertoken'];
+                   
+                    $("#div-Co2").append('<tr><td>'+ usertoken +'</td><td>' + co2emissions +'</td></tr>');
+
+            };
+        }
+
+    });
+	}
+
+var leaderboardgas = function(){
+
+	let the_serialized_data = 'usertoken='+localStorage.usertoken;
+	
+	$.ajax({
+		url: endpoint02 + '/leaderboardgas',
+		data: the_serialized_data,
+		type: 'GET',
+		success: function(results){
+			console.log(results);
+			$('#div-Gas').html("<tr><th>usertoken</th><th> Gas Saved </th></tr>");
+	
+			for(var i =0; i < results.length; i++){
+				let gas = results[i]['gas'];
+				let usertoken = results[i]['usertoken'];
+					   
+				$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas +'</td></tr>');
+	
+				};
+		}
+	
 		});
+		}
+	
+var leaderboardcalories = function(){
 
+	let the_serialized_data = 'usertoken='+localStorage.usertoken;
+		
+		$.ajax({
+			url: endpoint02 + '/leaderboardcalories',
+			data: the_serialized_data,
+			type: 'GET',
+			success: function(results){
+				console.log(results);
+				$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
+		
+				for(var i =0; i < results.length; i++){
+						let calories = results[i]['calories'];
+						let usertoken = results[i]['usertoken'];
+						   
+		$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
+		
+	};
+	}
+		
+	});
 }
 
 var navigationControl = function(the_link){
