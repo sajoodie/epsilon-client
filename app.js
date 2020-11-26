@@ -6,15 +6,15 @@ localStorage.usertoken = 0;
 localStorage.lastnavlink = '';
 
 /* SUPPORTING FUNCTIONS */
-//calculating amount of CO2 emissions saved 
-//average vehicle emits 411 grams / mile
-var C02_Saved = function(){
+var Co2_Saved = function(){
 	var distance = $('#distance').val();
 	var result = (distance * 411)
 	console.log(result);
 	return result;
+
 };
 
+var Co2 = Co2_Saved()
 
 //average car gets 21.6 miles / gallon
 var Gas_Saved = function() {
@@ -24,9 +24,12 @@ var Gas_Saved = function() {
 	return result;
 };
 
+var Gas = Gas_Saved()
+
+
 //calculating calories lost
 //calories = duration in minutes * (MET * 3.5 * weight in kg)/200
-var Calorie_Lost = function(){
+var Calories_Lost = function(){
 	var weight_lbs = $('#weight').val();
 	var duration = $('#duration').val();
 	var intensity_level = $('#intensity').val();
@@ -34,33 +37,41 @@ var Calorie_Lost = function(){
 	var MET = '';
 	var weight_kg = weight_lbs * .453;
 
-	if (travel == 'Walking') {
-		if (intensity_level == 'High') {
-			MET = 2.9;
+	if (travel == 'walk') {
+		if (intensity_level == 'high') {
+			MET = 3.6;
 		}
-		if (intensity_level == 'Medium') {
+		if (intensity_level == 'medium') {
 			MET = 3.3;
 		}
-		if (intensity_level == 'Low') {
-			MET = 3.6;
+		if (intensity_level == 'low') {
+			MET = 2.9;
 		}
 	}
 	else {
-		if (intensity_level == 'High') {
+		if (intensity_level == 'high') {
 			MET = 5.3;
 		}
-		if (intensity_level == 'Medium') {
+		if (intensity_level == 'medium') {
 			MET = 4.5;
 		}
-		if (intensity_level == 'Low') {
+		if (intensity_level == 'low') {
 			MET = 4.0;
 		}
 	}
 
 	var result = duration * (MET * 3.5 * weight_kg)/200;
+	console.log(travel);
+	console.log(intensity_level);
+	console.log(MET);
 	console.log(result);
 	return result;
 };
+
+var calories = Calories_Lost()
+
+
+
 
 
 var leaderboardco2 = function(){
@@ -249,6 +260,9 @@ $(document).ready(function(){
 	$("#btnForm").click(function(){
 		$("#div-form").hide();
 		$("#div-formresult").show();
+		$("#Calories").html("You Lost " + Calories_Lost() + " Calories!!");
+		$("#Gasresult").html("You Saved " +  Gas_Saved() + " Gallons of gas!!") ;
+		$("#Co2result").html("You Stopped " + Co2_Saved() + " of Co2 Emissions from Entering the Atmosphere!!");
 	})
 
 	$('#btnCo2').click(function(){
