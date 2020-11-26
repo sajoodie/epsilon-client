@@ -79,6 +79,30 @@ var leaderboardco2 = function(){
 			});
 			}
 
+			var leaderboard = function(){
+
+				let the_serialized_data = 'usertoken='+localStorage.usertoken;
+			
+				$.ajax({
+					url: endpoint02 + '/leaderboard',
+					data: the_serialized_data,
+					type: 'GET',
+					success: function(results){
+						console.log(results);
+						$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
+			
+						for(var i =0; i < results.length; i++){
+								let calories = results[i]['calories'];
+								let usertoken = results[i]['usertoken'];
+							   
+								$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
+			
+						};
+					}
+			
+				});
+				}
+
 
 
 var navigationControl = function(the_link){
@@ -129,7 +153,7 @@ var loginController = function(){
 
 
 //document ready section
-$(document).ready(function (){
+$(document).ready(function(){
 
     /* ------------------  basic navigation ----------------*/
 
@@ -160,7 +184,10 @@ $(document).ready(function (){
 	
 	
 	$(".nav-link").click(function(){
-		$("#result").hide();
+		$("#div-Leaderboard").show();
+		$("#div-Gas").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").hide(); 	/* hide all content-wrappers */
+		$("#div-Co2").hide(); /* show the chosen content wrapper */
 	});
 
 	$("#btnForm").click(function(){
@@ -170,6 +197,7 @@ $(document).ready(function (){
 
 	$('#btnCo2').click(function(){
 		$("#result").show();
+		$("#div-Leaderboard").hide();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").show(); /* show the chosen content wrapper */
@@ -177,6 +205,7 @@ $(document).ready(function (){
 
 	$('#btnGas').click(function(){
 		$("#result").show();
+		$("#div-Leaderboard").hide();
 		$("#div-Co2").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Gas").show(); /* show the chosen content wrapper */
