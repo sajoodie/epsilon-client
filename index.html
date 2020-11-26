@@ -44,19 +44,16 @@
     <!--Each individual item can be secured by adding the class: secured -->
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-health"><i class="fa fa-list"></i>Health Information</a>
+                    <a class="nav-link" href="#div-form"><i class="fa fa-list"></i> Form </a>
                 </li>
                 <li class="nav-item secured">
                     <a class="nav-link" href="#div-leaderboard"><i class="fa fa-link"></i> Leaderboard </a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-emissions"><i class="fa fa-link"></i>Emissions Saved</a>
+                    <a class="nav-link" href="#div-history"><i class="fa fa-link"></i> History</a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-history"><i class="fa fa-link"></i>History</a>
-                </li>
-                <li class="nav-item secured">
-                    <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i>Logout</a>
+                    <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i> Logout</a>
                 </li>
         </ul>
     </div>
@@ -102,7 +99,7 @@
         </div>
 
 
-		<div class="col-md-8 content-wrapper " id="div-health" style="display: none;">
+		<div class="col-md-8 content-wrapper " id="div-form" style="display: none;">
 			<div>
                 <form id='form-health'>
               
@@ -112,7 +109,7 @@
                     <input type="distance" name="distance" id="distance" class="form-control">
                     <label for="duration">Duration (mins):</label>
                     <input type="duration" name="duration" id="duration" class="form-control">
-                    <label for="travel">Select travel method below:</label>
+                    <label for="travel">Select Activity Below:</label>
                     <br>
                     <select name="travel" id="travel">
                         <option value=""></option>
@@ -120,7 +117,7 @@
                         <option value="bike">Biking</option>
                       </select>
                       <br>
-                    <label for="intensity">Intensity Level:</label>
+                    <label for="intensity">Select Intensity Level Below:</label>
                     <br>
                     <select name="intensity" id="intensity">
                         <option value=""></option>
@@ -132,7 +129,7 @@
 
                     <br>
                     <div class="text-center">
-                    <input type="button" value="Submit" name="btnHealth" id="btnHealth" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                    <input type="button" value="Submit" name="btnForm" id="btnForm" class="btn btn-primary" style="font-size:2em;width:100%;" >
                     </div>
                     <br>
 
@@ -155,7 +152,11 @@
                     <input type="button" value="Calories Lost" name="btnCalories" id="btnCalories" class="btn btn-primary" style="font-size:2em;width:100%;" >
                     </div>
                 <br>
+
             <div id="result">
+                <div id="div-Leaderboard">
+                    Leaderboard
+                </div>
                 <div id="div-Co2">
                     c02
                 </div>
@@ -171,9 +172,22 @@
             </div>
 		</div>
 		
-		<div class="col-md-8 content-wrapper " id="div-emissions" style="display: none;">
+		<div class="col-md-8 content-wrapper " id="div-formresult" style="display: none;">
 			<div>
-                BBB Content goes here.
+                <h1>Thanks for Completing the Form! Here are your Results:</h1>
+                <br>
+                <div id = "formresult">
+                    Result will be Here
+                </div>
+            </div>
+            <br>
+            <br>
+            <div>
+                <input type="button" value="Save" name="btnSave" id="btnSave" class="btn btn-primary" style="font-size:2em;width:100%;" >
+            </div>
+            <br>
+            <div>
+                <input type="button" value="Discard" name="btnDiscard" id="btnDiscard" class="btn btn-primary" style="font-size:2em;width:100%;" >
             </div>
 		</div>
 		
