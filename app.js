@@ -6,6 +6,62 @@ localStorage.usertoken = 0;
 localStorage.lastnavlink = '';
 
 /* SUPPORTING FUNCTIONS */
+//calculating amount of CO2 emissions saved 
+//average vehicle emits 411 grams / mile
+var C02_Saved = function(){
+	var distance = $('#distance').val();
+	var result = (distance * 411)
+	console.log(result);
+	return result;
+};
+
+
+//average car gets 21.6 miles / gallon
+var Gas_Saved = function() {
+	var distance = $('#distance').val();
+	var result = (distance / 21.6).toFixed(2);
+	console.log(result);
+	return result;
+};
+
+//calculating calories lost
+//calories = duration in minutes * (MET * 3.5 * weight in kg)/200
+var Calorie_Lost = function(){
+	var weight_lbs = $('#weight').val();
+	var duration = $('#duration').val();
+	var intensity_level = $('#intensity').val();
+	var travel = $('#travel').val();
+	var MET = '';
+	var weight_kg = weight_lbs * .453;
+
+	if (travel == 'Walking') {
+		if (intensity_level == 'High') {
+			MET = 2.9;
+		}
+		if (intensity_level == 'Medium') {
+			MET = 3.3;
+		}
+		if (intensity_level == 'Low') {
+			MET = 3.6;
+		}
+	}
+	else {
+		if (intensity_level == 'High') {
+			MET = 5.3;
+		}
+		if (intensity_level == 'Medium') {
+			MET = 4.5;
+		}
+		if (intensity_level == 'Low') {
+			MET = 4.0;
+		}
+	}
+
+	var result = duration * (MET * 3.5 * weight_kg)/200;
+	console.log(result);
+	return result;
+};
+
 
 var leaderboardco2 = function(){
 
