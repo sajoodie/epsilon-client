@@ -6,69 +6,28 @@ localStorage.usertoken = 0;
 localStorage.lastnavlink = '';
 
 /* SUPPORTING FUNCTIONS */
-var Co2_Saved = function(){
-	var distance = $('#distance').val();
-	var result = (distance * 411)
-	console.log(result);
-	return result;
 
-};
+var SendTheForm = function(){
+	var the_serialized_data = $('#form-health').serialize();
+	//console.log(the_serialized_data);
 
-var Co2 = Co2_Saved()
-
-//average car gets 21.6 miles / gallon
-var Gas_Saved = function() {
-	var distance = $('#distance').val();
-	var result = (distance / 21.6).toFixed(2);
-	console.log(result);
-	return result;
-};
-
-var Gas = Gas_Saved()
-
-
-//calculating calories lost
-//calories = duration in minutes * (MET * 3.5 * weight in kg)/200
-var Calories_Lost = function(){
-	var weight_lbs = $('#weight').val();
-	var duration = $('#duration').val();
-	var intensity_level = $('#intensity').val();
-	var travel = $('#travel').val();
-	var MET = '';
-	var weight_kg = weight_lbs * .453;
-
-	if (travel == 'walk') {
-		if (intensity_level == 'high') {
-			MET = 3.6;
-		}
-		if (intensity_level == 'medium') {
-			MET = 3.3;
-		}
-		if (intensity_level == 'low') {
-			MET = 2.9;
-		}
-	}
-	else {
-		if (intensity_level == 'high') {
-			MET = 5.3;
-		}
-		if (intensity_level == 'medium') {
-			MET = 4.5;
-		}
-		if (intensity_level == 'low') {
-			MET = 4.0;
-		}
-	}
-
-	var result = duration * (MET * 3.5 * weight_kg)/200;
-	console.log(travel);
-	console.log(intensity_level);
-	console.log(MET);
-	console.log(result);
-	return result;
-};
-
-var calories = Calories_Lost()
+		//send the form
+		$.ajax({
+			url: endpoint02 + '/form',
+			type: 'POST',
+			data: the_serialized_data,
+			success: function(result){
+				//console.log(result);
+				$('#Co2result').html('You stopped ' + result['co2_saved'] + ' grams of c02 emssions from entering the atmosphere!');
+				$('#Gasresult').html('You saved ' + result['gas_saved'] + ' gallons of gasoline!');
+				$("#Calories").html('You burned ' + result['calories_lost'] + ' calories!');
+			},
+			error: function(result){
+				//what to do if error occurs
+				$('#Co2result').append('You did something wrong')
+			}
+		});
+	} //end
 
 
 
@@ -98,7 +57,7 @@ var leaderboardco2 = function(){
     });
 	}
 
-	var leaderboardgas = function(){
+var leaderboardgas = function(){
 
 		let the_serialized_data = 'usertoken='+localStorage.usertoken;
 	
@@ -122,7 +81,7 @@ var leaderboardco2 = function(){
 		});
 		}
 	
-		var leaderboardcalories = function(){
+var leaderboardcalories = function(){
 
 			let the_serialized_data = 'usertoken='+localStorage.usertoken;
 		
@@ -146,7 +105,7 @@ var leaderboardco2 = function(){
 			});
 			}
 
-			var leaderboard = function(){
+var leaderboard = function(){
 
 				let the_serialized_data = 'usertoken='+localStorage.usertoken;
 			
@@ -257,13 +216,15 @@ $(document).ready(function(){
 		$("#div-Co2").hide(); /* show the chosen content wrapper */
 	});
 
+	//show form of results after submitting
 	$("#btnForm").click(function(){
 		$("#div-form").hide();
 		$("#div-formresult").show();
-		$("#Calories").html("You Lost " + Calories_Lost() + " Calories!!");
-		$("#Gasresult").html("You Saved " +  Gas_Saved() + " Gallons of gas!!") ;
-		$("#Co2result").html("You Stopped " + Co2_Saved() + " of Co2 Emissions from Entering the Atmosphere!!");
-	})
+		SendTheForm();
+		//$("#Calories").html("You Lost " + Calories_Lost() + " Calories!!");
+		//$("#Gasresult").html("You Saved " +  Gas_Saved() + " Gallons of gas!!") ;
+		//$("#Co2result").html("You Stopped " + Co2_Saved() + " of Co2 Emissions from Entering the Atmosphere!!");
+	});
 
 	$('#btnCo2').click(function(){
 		$("#result").show();
