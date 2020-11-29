@@ -102,13 +102,13 @@
 		<div class="col-md-8 content-wrapper " id="div-form" style="display: none;">
 			<div>
                 <form id='form-health'>
-              
-                    <label for="weight">Weight (lbs):</label>
-                    <input type="weight" name="weight" id="weight" class="form-control">
+                    
                     <label for="distance">Distance to destination (miles):</label>
-                    <input type="distance" name="distance" id="distance" class="form-control">
+                    <input type="text" name="distance" id="distance" class="form-control">
+                    <label for="weight_lbs">Weight (lbs):</label>
+                    <input type="text" name="weight_lbs" id="weight_lbs" class="form-control">
                     <label for="duration">Duration (mins):</label>
-                    <input type="duration" name="duration" id="duration" class="form-control">
+                    <input type="text" name="duration" id="duration" class="form-control">
                     <label for="travel">Select Activity Below:</label>
                     <br>
                     <select name="travel" id="travel">
@@ -117,15 +117,17 @@
                         <option value="bike">Biking</option>
                       </select>
                       <br>
-                    <label for="intensity">Select Intensity Level Below:</label>
+                    <label for="intensity_level">Select Intensity Level Below:</label>
                     <br>
-                    <select name="intensity" id="intensity">
+                    <select name="intensity_level" id="intensity_level">
                         <option value=""></option>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                       </select>
                       <br>
+
+            
 
                     <br>
                     <div class="text-center">
