@@ -22,6 +22,8 @@ var SendTheForm = function(){
 				$('#Gasresult').html('You saved ' + result['gas_saved'] + ' gallons of gasoline!');
 				$("#Calories").html('You burned ' + result['calories_lost'] + ' calories!');
 			},
+
+
 			error: function(result){
 				//what to do if error occurs
 				$('#Co2result').append('You did something wrong')
@@ -167,6 +169,7 @@ var loginController = function(){
 			$('#login_message').html('');
 			$('#login_message').hide();
 			localStorage.usertoken = data['user_id']; //login succeeded.  Set usertoken.
+			$("#usertoken").val(localStorage.usertoken)
 			$('.secured').removeClass('locked');
 			$('.secured').addClass('unlocked');
 			$('#div-login').hide();
@@ -227,6 +230,7 @@ $(document).ready(function(){
 	});
 
 	$('#btnCo2').click(function(){
+		leaderboardco2();
 		$("#result").show();
 		$("#div-Leaderboard").hide();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
