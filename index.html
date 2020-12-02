@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>MIS3502 Template</title>
+    <title>ZeroGallonsPerMile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 4 References -->
@@ -17,18 +17,18 @@
     <script src="js/app.js"></script>
 
     <!-- Link to image for the favicon -->
-    <link rel="icon" href="images/TU100x100.png">
+    <link rel="icon" href="images/ClipartKey_1344244.png">
 </head>
 
 <body>
 
 <!-- Top Navigation Bar -->
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
     <!-- Logo -->
       <a class ="navbar-brand" href="index.html">
-          <img alt="MIS3502 - TO Logo" src="images/TU100x100.png" style="width:40px;">
-          &nbsp;&nbsp;MIS3502
+          <img alt="MIS3502 - TO Logo" src="images/ClipartKey_1344244.png" style="width:40px;">
+          &nbsp;&nbsp;ZeroGallonsPerMile
       </a>
 
     <!-- Toggler Icon for responsiveness -->
@@ -44,16 +44,16 @@
     <!--Each individual item can be secured by adding the class: secured -->
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-form"><i class="fa fa-list"></i> Form </a>
+                    <a class="nav-link bg-dark text-white" href="#div-form"><i class="fa fa-address-card"></i> Form </a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-leaderboard"><i class="fa fa-link"></i> Leaderboard </a>
+                    <a class="nav-link bg-dark text-white" href="#div-leaderboard"><i class="fa fa-bar-chart"></i> Leaderboard </a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-history"><i class="fa fa-link"></i> History</a>
+                    <a class="nav-link bg-dark text-white" href="#div-history"><i class="fa fa-archive"></i> History</a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link" href="#div-login"><i class="fa fa-sign-out"></i> Logout</a>
+                    <a class="nav-link bg-dark text-white" href="#div-login"><i class="fa fa-sign-out"></i> Logout</a>
                 </li>
         </ul>
     </div>
@@ -75,9 +75,9 @@
 
 		<div class="col-md-8 content-wrapper " id="div-login" style="display: none;">
                 <form id='form-login'>
-				<label for="username">User name:</label>
+				<label for="username"><b>User name:</b></label>
 				<input type="text" name="username" id="username" class="form-control" >
-				<label for="password">Password:</label>
+				<label for="password"><b>Password:</b></label>
                 <input type="password" name="password" id="password" class="form-control" >
                 <br>
 				<div class="text-center">
@@ -103,13 +103,13 @@
 			<div>
                 <form id='form-health'>
                     <input type="hidden" id="usertoken" name="usertoken">
-                    <label for="distance">Distance to destination (miles):</label>
+                    <label for="distance"><b>Distance to destination (miles):</b></label>
                     <input type="text" name="distance" id="distance" class="form-control">
-                    <label for="weight_lbs">Weight (lbs):</label>
+                    <label for="weight_lbs"><b>Weight (lbs):</b></label>
                     <input type="text" name="weight_lbs" id="weight_lbs" class="form-control">
-                    <label for="duration">Duration (mins):</label>
+                    <label for="duration"><b>Duration (mins):</b></label>
                     <input type="text" name="duration" id="duration" class="form-control">
-                    <label for="travel">Select Activity Below:</label>
+                    <label for="travel"><b>Select Activity Below:</b></label>
                     <br>
                     <select name="travel" id="travel">
                         <option value=""></option>
@@ -117,7 +117,7 @@
                         <option value="bike">Biking</option>
                       </select>
                       <br>
-                    <label for="intensity_level">Select Intensity Level Below:</label>
+                    <label for="intensity_level"><b>Select Intensity Level Below:</b></label>
                     <br>
                     <select name="intensity_level" id="intensity_level">
                         <option value=""></option>
@@ -142,33 +142,35 @@
 	    <div class="col-md-8 content-wrapper " id="div-leaderboard" style="display: none;">
 			<div>
                 <div>
-                    <input type="button" value="Co2Emissions" name="btnC02" id="btnCo2" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                    <input type="button" value="Co2Emissions" name="btnC02" id="btnCo2" class="btn btn-primary" style=" font-size:2em;width:33%; float: left;" >
                     </div>
-                <br>
+                
                 <div>
-                    <input type="button" value="Gas Saved" name="btnGas" id="btnGas" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                    <input type="button" value="Gas Saved" name="btnGas" id="btnGas" class="btn btn-primary" style=" font-size:2em;width:33%;float: left;" >
                     </div>
-                <br>
+               
 
                 <div>
-                    <input type="button" value="Calories Lost" name="btnCalories" id="btnCalories" class="btn btn-primary" style="font-size:2em;width:100%;" >
+                    <input type="button" value="Calories Lost" name="btnCalories" id="btnCalories" class="btn btn-primary" style="font-size:2em;width:33%;float: left;" >
                     </div>
-                <br>
+                    <br>
+                  
+                
 
             <div id="result">
                 <div id="div-Leaderboard">
-                    Leaderboard
+                    <b>Leaderboard</b>
                 </div>
                 <div id="div-Co2">
-                    c02
+                    <b>c02</b>
                 </div>
 
                 <div id="div-Gas">
-                    Gas
+                    <b>Gas</b>
                 </div>
 
                 <div id="div-Calories">
-                    Calories
+                    <b>Calories</b>
                 </div>
             </div>
             </div>
@@ -224,7 +226,7 @@
     <div class="container-fluid bg-dark text-white">
         <div class="row">
             <div class="col-md-12 text-center">
-            &copy; 2020 MIS3502
+            &copy; 2020 ZeroGallonsPerMile
             </div>
         </div>
         <div class="row">
