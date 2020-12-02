@@ -18,9 +18,9 @@ var SendTheForm = function(){
 			data: the_serialized_data,
 			success: function(result){
 				//console.log(result);
-				$('#Co2result').html('You stopped ' + result['co2_saved'] + ' grams of c02 emssions from entering the atmosphere!');
-				$('#Gasresult').html('You saved ' + result['gas_saved'] + ' gallons of gasoline!');
-				$("#Calories").html('You burned ' + result['calories_lost'] + ' calories!');
+				$('#Co2result').html('<b> You stopped ' + result['co2_saved'] + ' grams of c02 emssions from entering the atmosphere! </b>');
+				$('#Gasresult').html('<b> You saved ' + result['gas_saved'] + ' gallons of gasoline!</b>');
+				$("#Calories").html('<b> You burned ' + result['calories_lost'] + ' calories! </b>');
 			},
 
 
