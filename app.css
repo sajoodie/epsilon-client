@@ -1,0 +1,33 @@
+body{
+	background-color: #add8e6;
+}
+label{
+    margin-top:10px;
+}
+.container-fluid{
+	background-color: #add8e6;
+	min-height: 400px;
+}
+.btn-default{
+    /* BS4 changed the appearance of btn-default on anchor tags.
+      I liked the old way better... so that's
+      what I am making happen here.  */
+    background-color: #add8e6;
+    color: tan;
+}
+.btn {
+    /*make text wrap nicely in buttons */
+    white-space:normal;
+}
+
+.locked {
+    display: none !important; /*locked content must not be shown to user*/
+}
+
+.unlocked {
+    border-width: initial; /*set border-width to whatever the default is. */
+}
+
+.secured {
+    border-width: initial; /*set border-width to whatever the default is. */
+}
