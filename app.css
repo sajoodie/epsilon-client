@@ -31,3 +31,43 @@ label{
 .secured {
     border-width: initial; /*set border-width to whatever the default is. */
 }
+
+#distance_error {
+    display: none; /*hiding error messages before form submits*/
+    padding-left: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 10px;
+}
+
+#weight_error {
+    display: none; /*hiding error messages before form submits*/
+    padding-left: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 10px;
+}
+
+#duration_error {
+    display: none; /*hiding error messages before form submits*/
+    padding-left: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 10px;
+}
+
+#travel_error {
+    display: none; /*hiding error messages before form submits*/
+    padding-left: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 10px;
+}
+
+#intensity_error {
+    display: none; /*hiding error messages before form submits*/
+    padding-left: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 10px;
+}
