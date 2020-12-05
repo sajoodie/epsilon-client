@@ -18,9 +18,9 @@ var SendTheForm = function(){
 			data: the_serialized_data,
 			success: function(result){
 				//console.log(result);
-				$('#Co2result').html('<b> You stopped ' + result['co2_saved'] + ' grams of c02 emssions from entering the atmosphere! </b>');
-				$('#Gasresult').html('<b> You saved ' + result['gas_saved'] + ' gallons of gasoline!</b>');
-				$("#Calories").html('<b> You burned ' + result['calories_lost'] + ' calories! </b>');
+				$('#Co2result').html('You stopped ' + result['co2_saved'] + ' grams of c02 emssions from entering the atmosphere!');
+				$('#Gasresult').html('You saved ' + result['gas_saved'] + ' gallons of gasoline!');
+				$("#Calories").html('You burned ' + result['calories_lost'] + ' calories!');
 			},
 
 
@@ -45,13 +45,13 @@ var leaderboardco2 = function(){
         type: 'GET',
         success: function(results){
             console.log(results);
-            $('#div-Co2').html("<tr><th>usertoken</th><th>Co2 Emissions Saved</th></tr>");
+            $('#div-Co2').html("<tr><th>usertoken</th><br>" + " " + "<th> Co2 Emissions Saved</th></tr>");
 
             for(var i =0; i < results.length; i++){
-                    let co2emissions = results[i]['co2emissions'];
+                    let co2emissions = results[i]['sum(c02)'];
                     let usertoken = results[i]['usertoken'];
                    
-                    $("#div-Co2").append('<tr><td>'+ usertoken +'</td><td>' + co2emissions +'</td></tr>');
+                    $("#div-Co2").append('<tr><td>'+ usertoken +'</td><td>' + co2emissions + " " + 'Grams </td></tr>');
 
             };
         }
@@ -69,13 +69,13 @@ var leaderboardgas = function(){
 			type: 'GET',
 			success: function(results){
 				console.log(results);
-				$('#div-Gas').html("<tr><th>usertoken</th><th> Gas Saved </th></tr>");
+				$('#div-Gas').html("<tr><th>usertoken Gas Saved </th></tr>");
 	
 				for(var i =0; i < results.length; i++){
-						let gas = results[i]['gas'];
+						let gas = results[i]['sum(gas)'];
 						let usertoken = results[i]['usertoken'];
 					   
-						$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas +'</td></tr>');
+						$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas + " " + "Total Gallons Saved" + '</td></tr>');
 	
 				};
 			}
@@ -96,10 +96,10 @@ var leaderboardcalories = function(){
 					$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
 		
 					for(var i =0; i < results.length; i++){
-							let calories = results[i]['calories'];
+							let calories = results[i]['sum(calories)'];
 							let usertoken = results[i]['usertoken'];
 						   
-							$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
+							$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories + " " + 'Calories Lost' +'</td></tr>');
 		
 					};
 				}
@@ -117,13 +117,15 @@ var leaderboard = function(){
 					type: 'GET',
 					success: function(results){
 						console.log(results);
-						$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
+						$('#div-Leaderboard').html("<tr><th>usertoken</th><th>Total Calories Lost</th><th>Total Gas Saved</th><th>Total Co2 Emissions Saved</th></tr>");
 			
 						for(var i =0; i < results.length; i++){
-								let calories = results[i]['calories'];
+								let calories = results[i]['sum(calories)'];
+								let gas = results[i]['sum(gas)']
+								let co2emission = results[i]["sum(c02)"]
 								let usertoken = results[i]['usertoken'];
 							   
-								$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td></tr>');
+								$("#div-Leaderboard").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td><td>' + gas + '</td><td>' + co2emission +'</td></tr>' );
 			
 						};
 					}
@@ -213,6 +215,7 @@ $(document).ready(function(){
 	
 	
 	$(".nav-link").click(function(){
+		leaderboard();
 		$("#div-Leaderboard").show();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
@@ -229,6 +232,17 @@ $(document).ready(function(){
 		//$("#Co2result").html("You Stopped " + Co2_Saved() + " of Co2 Emissions from Entering the Atmosphere!!");
 	});
 
+	$("#btnContinue").click(function(){
+		$("#div-formresult").hide();
+		$("#div-Result").show();
+		$("#div-leaderboard").show();
+		$("#div-Leaderboard").show();
+		$("#div-Gas").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").hide(); 	/* hide all content-wrappers */
+		$("#div-Co2").hide(); /* show the chosen content wrapper */
+		leaderboard();
+	});
+
 	$('#btnCo2').click(function(){
 		leaderboardco2();
 		$("#result").show();
@@ -239,6 +253,7 @@ $(document).ready(function(){
 	});
 
 	$('#btnGas').click(function(){
+		leaderboardgas();
 		$("#result").show();
 		$("#div-Leaderboard").hide();
 		$("#div-Co2").hide(); 	/* hide all content-wrappers */
@@ -247,6 +262,7 @@ $(document).ready(function(){
 	});
 
 	$('#btnCalories').click(function(){
+		leaderboardcalories();
 		$("#result").show();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); 	/* hide all content-wrappers */
