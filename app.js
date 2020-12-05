@@ -224,12 +224,58 @@ $(document).ready(function(){
 
 	//show form of results after submitting
 	$("#btnForm").click(function(){
+		//$("#div-form").hide();
+		//$("#div-formresult").show();
+		
+		//error trapping BEFORE request is sent to avoid any possible user input errors
+		var distance = $('#distance').val();
+		var weight = $('#weight_lbs').val();
+		var duration = $('#duration').val();
+		var travel = $('#travel').val();
+		var intensity = $('#intensity_level').val();
+		var weight = $('#weight_lbs').val();
+
+		$('#distance_error').hide();
+		$('#weight_error').hide();
+		$('#duration_error').hide();
+		$('#travel_error').hide();
+		$('#intensity_error').hide();
+
+		if (distance == "" || duration == undefined){
+			$('#distance_error').show().text('Please provide a value for distance');
+		}
+		if (isNaN(distance)){
+			$('#distance_error').show().text('Please provide a number');
+		}
+	 
+		if (weight == "" || duration == undefined){
+			$('#weight_error').show().text('Please provide a value for weight');
+		}
+		if (isNaN(weight)){
+			$('#weight_error').show().text('Please provide a number');
+		}
+
+		if (duration == "" || duration == undefined){
+			$('#duration_error').show().text('Please provide a value for duration');
+		}
+		if (isNaN(duration)){
+			$('#duration_error').show().text('Please provide a number');
+		}
+
+		if (travel == undefined || travel == ""){
+			$('#travel_error').show().text('Please select a travel method');
+		}
+	
+		if (intensity == undefined || intensity == ""){
+			$('#intensity_error').show().text('Please select an intensity level');
+		}
+
+		else{
 		$("#div-form").hide();
 		$("#div-formresult").show();
 		SendTheForm();
-		//$("#Calories").html("You Lost " + Calories_Lost() + " Calories!!");
-		//$("#Gasresult").html("You Saved " +  Gas_Saved() + " Gallons of gas!!") ;
-		//$("#Co2result").html("You Stopped " + Co2_Saved() + " of Co2 Emissions from Entering the Atmosphere!!");
+		
+		}
 	});
 
 	$("#btnContinue").click(function(){
