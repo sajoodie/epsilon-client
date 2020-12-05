@@ -104,12 +104,16 @@
                 <form id='form-health'>
                     <input type="hidden" id="usertoken" name="usertoken">
                     <label for="distance"><b>Distance to destination (miles):</b></label>
+                    <span id='distance_error' class='alert alert-danger'> </span>
                     <input type="text" name="distance" id="distance" class="form-control">
                     <label for="weight_lbs"><b>Weight (lbs):</b></label>
+                    <span id='weight_error' class='alert alert-danger'> </span>
                     <input type="text" name="weight_lbs" id="weight_lbs" class="form-control">
                     <label for="duration"><b>Duration (mins):</b></label>
+                    <span id='duration_error' class='alert alert-danger'> </span>
                     <input type="text" name="duration" id="duration" class="form-control">
                     <label for="travel"><b>Select Activity Below:</b></label>
+                    <span id='travel_error' class='alert alert-danger'> </span>
                     <br>
                     <select name="travel" id="travel">
                         <option value=""></option>
@@ -118,6 +122,7 @@
                       </select>
                       <br>
                     <label for="intensity_level"><b>Select Intensity Level Below:</b></label>
+                    <span id='intensity_error' class='alert alert-danger'> </span>
                     <br>
                     <select name="intensity_level" id="intensity_level">
                         <option value=""></option>
