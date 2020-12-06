@@ -125,14 +125,48 @@ var leaderboardco2 = function(){
         type: 'GET',
         success: function(results){
             console.log(results);
-            $('#div-Co2').html("<tr><th>usertoken</th><br>" + " " + "<th> Co2 Emissions Saved</th></tr>");
+            
 
             for(var i =0; i < results.length; i++){
                     let co2emissions = results[i]['sum(c02)'];
                     let usertoken = results[i]['usertoken'];
-                   
-                    $("#div-Co2").append('<tr><td>'+ usertoken +'</td><td>' + co2emissions + " " + 'Grams </td></tr>');
-
+					if(usertoken == 1){
+						name = "Joe"
+					}
+					if(usertoken == 2){
+						name = "Sally"
+					}
+					if(usertoken == 3){
+						name = "Sam"
+					}
+					if(usertoken == 4){
+						name = "Jeremy"
+					}
+					if(usertoken == 5){
+						name = "David"
+					}
+					if(usertoken == 6){
+						name = "Mart"
+					}
+					if(usertoken == 7){
+						name = "Hal"
+					}
+					if(usertoken == 8){
+						name = "John"
+					}
+					if(usertoken == 9){
+						name = "Guy"
+					}
+					if(usertoken == 10){
+						name = "Kyle"
+					}
+					if(usertoken == 11){
+						name = "Simon"
+					}
+					if(usertoken == 12){
+						name = "Jessica"
+					}
+                    $("#Co2body").append('<tr><td>'+ name +'</td><td>' + co2emissions + " " + 'Total Grams Saved </td></tr>');
             };
         }
 
@@ -149,13 +183,47 @@ var leaderboardgas = function(){
 			type: 'GET',
 			success: function(results){
 				console.log(results);
-				$('#div-Gas').html("<tr><th>usertoken Gas Saved </th></tr>");
 	
 				for(var i =0; i < results.length; i++){
 						let gas = results[i]['sum(gas)'];
 						let usertoken = results[i]['usertoken'];
-					   
-						$("#div-Gas").append('<tr><td>'+ usertoken +'</td><td>' + gas + " " + "Total Gallons Saved" + '</td></tr>');
+						if(usertoken == 1){
+							name = "Joe"
+						}
+						if(usertoken == 2){
+							name = "Sally"
+						}
+						if(usertoken == 3){
+							name = "Sam"
+						}
+						if(usertoken == 4){
+							name = "Jeremy"
+						}
+						if(usertoken == 5){
+							name = "David"
+						}
+						if(usertoken == 6){
+							name = "Mart"
+						}
+						if(usertoken == 7){
+							name = "Hal"
+						}
+						if(usertoken == 8){
+							name = "John"
+						}
+						if(usertoken == 9){
+							name = "Guy"
+						}
+						if(usertoken == 10){
+							name = "Kyle"
+						}
+						if(usertoken == 11){
+							name = "Simon"
+						}
+						if(usertoken == 12){
+							name = "Jessica"
+						}
+						$("#Gasbody").append('<tr><td>'+ name +'</td><td>' + gas + " " + "Total Gallons Saved" + '</td></tr>');
 	
 				};
 			}
@@ -173,13 +241,47 @@ var leaderboardcalories = function(){
 				type: 'GET',
 				success: function(results){
 					console.log(results);
-					$('#div-Calories').html("<tr><th>usertoken</th><th>Calories Lost</th></tr>");
 		
 					for(var i =0; i < results.length; i++){
 							let calories = results[i]['sum(calories)'];
 							let usertoken = results[i]['usertoken'];
-						   
-							$("#div-Calories").append('<tr><td>'+ usertoken +'</td><td>' + calories + " " + 'Calories Lost' +'</td></tr>');
+							if(usertoken == 1){
+								name = "Joe"
+							}
+							if(usertoken == 2){
+								name = "Sally"
+							}
+							if(usertoken == 3){
+								name = "Sam"
+							}
+							if(usertoken == 4){
+								name = "Jeremy"
+							}
+							if(usertoken == 5){
+								name = "David"
+							}
+							if(usertoken == 6){
+								name = "Mart"
+							}
+							if(usertoken == 7){
+								name = "Hal"
+							}
+							if(usertoken == 8){
+								name = "John"
+							}
+							if(usertoken == 9){
+								name = "Guy"
+							}
+							if(usertoken == 10){
+								name = "Kyle"
+							}
+							if(usertoken == 11){
+								name = "Simon"
+							}
+							if(usertoken == 12){
+								name = "Jessica"
+							}
+							$("#Caloriesbody").append('<tr><td>'+ name +'</td><td>' + calories + " " + 'Total Calories Lost' +'</td></tr>');
 		
 					};
 				}
@@ -197,15 +299,49 @@ var leaderboard = function(){
 					type: 'GET',
 					success: function(results){
 						console.log(results);
-						$('#div-Leaderboard').html("<tr><th>usertoken</th><th>Total Calories Lost</th><th>Total Gas Saved</th><th>Total Co2 Emissions Saved</th></tr>");
 			
 						for(var i =0; i < results.length; i++){
 								let calories = results[i]['sum(calories)'];
 								let gas = results[i]['sum(gas)']
 								let co2emission = results[i]["sum(c02)"]
 								let usertoken = results[i]['usertoken'];
-							   
-								$("#div-Leaderboard").append('<tr><td>'+ usertoken +'</td><td>' + calories +'</td><td>' + gas + '</td><td>' + co2emission +'</td></tr>' );
+								if(usertoken == 1){
+									name = "Joe"
+								}
+								if(usertoken == 2){
+									name = "Sally"
+								}
+								if(usertoken == 3){
+									name = "Sam"
+								}
+								if(usertoken == 4){
+									name = "Jeremy"
+								}
+								if(usertoken == 5){
+									name = "David"
+								}
+								if(usertoken == 6){
+									name = "Mart"
+								}
+								if(usertoken == 7){
+									name = "Hal"
+								}
+								if(usertoken == 8){
+									name = "John"
+								}
+								if(usertoken == 9){
+									name = "Guy"
+								}
+								if(usertoken == 10){
+									name = "Kyle"
+								}
+								if(usertoken == 11){
+									name = "Simon"
+								}
+								if(usertoken == 12){
+									name = "Jessica"
+								}
+								$("#Leaderboardbody").append('<tr><td>'+ name +'</td><td>' + calories + " " + 'Total Calories Lost </td><td>' + gas + " " + ' Gallons Saved</td><td>' + co2emission + " " + 'Total Grams Saved</td></tr>' );
 			
 						};
 					}
@@ -262,7 +398,7 @@ var loginController = function(){
 			$('#div-login').hide();
 			//$('#div-ABC').show();
 			$(".content-wrapper").hide();
-			$("#div-form").show();
+			$("#div-landing").show();
 		}
 	});
 	//scroll to top of page
@@ -295,7 +431,19 @@ $(document).ready(function(){
 		loginController();
 	});
 	
+	$('#btnLogin').click(function(){
+		$(".content-wrapper").hide();
+		$("#div-landing").show();
+	});
+
+	$('#btnLanding').click(function(){
+		$(".content-wrapper").hide();
+		$("#div-form").show();
+	});
+
+
 	$(".nav-link").click(function(){
+		$("#Leaderboardbody").empty();
 		leaderboard();
 		getHistory();
 		$("#div-Leaderboard").show();
@@ -375,19 +523,33 @@ $(document).ready(function(){
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); /* show the chosen content wrapper */
+		$("#Leaderboardbody").empty();
 		leaderboard();
 		getHistory();
 	});
 
 	$("#btnDiscard").click(function(){
 		DeleteActivity();
+		$("#discardpage").show();
 		$("#div-formresult").hide();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); /* show the chosen content wrapper */
 	});
 
+	$("#btnbacktoform").click(function(){
+		$("#discardpage").hide();
+		$("#div-form").show();
+	});
+
+	$("#btntoleaderboard").click(function(){
+		$("#discardpage").hide();
+		$("#div-leaderboard").show();
+		leaderboard();
+	});
+
 	$('#btnCo2').click(function(){
+		$("#Co2body").empty();
 		leaderboardco2();
 		$("#result").show();
 		$("#div-Leaderboard").hide();
@@ -397,6 +559,7 @@ $(document).ready(function(){
 	});
 
 	$('#btnGas').click(function(){
+		$("#Gasbody").empty();
 		leaderboardgas();
 		$("#result").show();
 		$("#div-Leaderboard").hide();
@@ -406,8 +569,10 @@ $(document).ready(function(){
 	});
 
 	$('#btnCalories').click(function(){
+		$("#Caloriesbody").empty();
 		leaderboardcalories();
 		$("#result").show();
+		$("#div-Leaderboard").hide();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").show(); /* show the chosen content wrapper */
