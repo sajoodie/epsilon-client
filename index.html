@@ -105,13 +105,13 @@
                     <input type="hidden" id="usertoken" name="usertoken">
                     <label for="distance"><b>Distance to destination (miles):</b></label>
                     <span id='distance_error' class='alert alert-danger'> </span>
-                    <input type="text" name="distance" id="distance" class="form-control">
+                    <input type="number" name="distance" id="distance" class="form-control">
                     <label for="weight_lbs"><b>Weight (lbs):</b></label>
                     <span id='weight_error' class='alert alert-danger'> </span>
-                    <input type="text" name="weight_lbs" id="weight_lbs" class="form-control">
+                    <input type="number" name="weight_lbs" id="weight_lbs" class="form-control">
                     <label for="duration"><b>Duration (mins):</b></label>
                     <span id='duration_error' class='alert alert-danger'> </span>
-                    <input type="text" name="duration" id="duration" class="form-control">
+                    <input type="number" name="duration" id="duration" class="form-control">
                     <label for="travel"><b>Select Activity Below:</b></label>
                     <span id='travel_error' class='alert alert-danger'> </span>
                     <br>
@@ -164,21 +164,23 @@
 
             <div id="result">
                 <div id="div-Leaderboard" class="text-center">
-                        <div>
-                	<table class="table table-dark table-bordered table-hover" style="width:100%" id="HistoryTable">
-                    	<thead>
-                    	<tr>
-				<th><b>HistoryID<b></th>
-				<th><b>UserToken</b></th>
-				<th><b>SecretWord</b></th>
-				<th><b>GameResult</b></th>
-                    	</tr>
-                    	</thead>
-                    		<tbody id="HistoryTBody">
-                    </tbody>
-
-                	</table>
-            		</div>
+                    <div>
+                        <table class="table table-dark table-bordered table-hover" style="width:100%" id="HistoryTable">
+                            <thead>
+                            <tr>
+                                <th><b>HistoryID<b></th>
+                                <th><b>UserToken</b></th>
+                                <th><b>SecretWord</b></th>
+                                <th><b>GameResult</b></th>
+                            </tr>
+                            </thead>
+                            <tbody id="HistoryTBody">
+        
+                            </tbody>
+        
+                        </table>
+        
+                    </div>
                 </div>
                 <div id="div-Co2" class="text-center">
                     <b>c02</b>
