@@ -148,6 +148,11 @@ var navigationControl = function(the_link){
 		localStorage.usertoken = 0;
 		$(".secured").addClass("locked");
 		$(".secured").removeClass("unlocked");
+		$('#distance_error').empty().hide();
+		$('#weight_error').empty().hide();
+		$('#duration_error').empty().hide();
+		$('#travel_error').empty().hide();
+		$('#intensity_error').empty().hide();
 	}
 
 	$(".content-wrapper").hide(); 	/* hide all content-wrappers */
@@ -175,7 +180,9 @@ var loginController = function(){
 			$('.secured').removeClass('locked');
 			$('.secured').addClass('unlocked');
 			$('#div-login').hide();
-			$('#div-ABC').show();
+			//$('#div-ABC').show();
+			$(".content-wrapper").hide();
+			$("#div-form").show();
 		}
 	});
 	//scroll to top of page
@@ -208,12 +215,6 @@ $(document).ready(function(){
 		loginController();
 	});
 	
-	$('#btnLogin').click(function(){
-		$(".content-wrapper").hide();
-		$("#div-form").show();
-	});
-	
-	
 	$(".nav-link").click(function(){
 		leaderboard();
 		$("#div-Leaderboard").show();
@@ -235,46 +236,45 @@ $(document).ready(function(){
 		var intensity = $('#intensity_level').val();
 		var weight = $('#weight_lbs').val();
 
-		$('#distance_error').hide();
-		$('#weight_error').hide();
-		$('#duration_error').hide();
-		$('#travel_error').hide();
-		$('#intensity_error').hide();
+		$('#distance_error').empty().hide();
+		$('#weight_error').empty().hide();
+		$('#duration_error').empty().hide();
+		$('#travel_error').empty().hide();
+		$('#intensity_error').empty().hide();
 
-		if (distance == "" || duration == undefined){
-			$('#distance_error').show().text('Please provide a value for distance');
+		if (distance == "" || distance == undefined){
+			$('#distance_error').show().text('Please provide the distance in miles');
 		}
-		if (isNaN(distance)){
-			$('#distance_error').show().text('Please provide a number');
-		}
-	 
-		if (weight == "" || duration == undefined){
-			$('#weight_error').show().text('Please provide a value for weight');
-		}
-		if (isNaN(weight)){
-			$('#weight_error').show().text('Please provide a number');
+		if(isNaN(distance)){
+			$('#distance_error').show().text('Distance must be a number');
 		}
 
-		if (duration == "" || duration == undefined){
-			$('#duration_error').show().text('Please provide a value for duration');
+		if (weight == "" || weight == undefined ){
+			$('#weight_error').show().text('Please provide your weight in pounds');
 		}
-		if (isNaN(duration)){
-			$('#duration_error').show().text('Please provide a number');
+		if (isNaN(weight)) {
+			$('#weight_error').show().text('Pounds must be a number');
+		}
+
+		if (duration == "" || duration == undefined ){
+			$('#duration_error').show().text('Please provide the duration in minutes');
+		}
+		if(isNaN(duration)) {
+			$('#duration_error').show().text('Duration must be a number');
 		}
 
 		if (travel == undefined || travel == ""){
 			$('#travel_error').show().text('Please select a travel method');
 		}
-	
+
 		if (intensity == undefined || intensity == ""){
 			$('#intensity_error').show().text('Please select an intensity level');
 		}
 
-		else{
-		$("#div-form").hide();
-		$("#div-formresult").show();
-		SendTheForm();
-		
+		if (distance != "" && distance != undefined && weight != "" && weight != undefined && duration != "" && duration != undefined && travel != undefined && travel != "" && intensity != undefined && intensity != "") {
+			SendTheForm();
+			$("#div-form").hide();
+			$("#div-formresult").show();
 		}
 	});
 
