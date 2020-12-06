@@ -67,6 +67,53 @@ var DeleteActivity = function(){
 	});
 }
 
+var getHistory = function(){
+	$.ajax({
+		url: endpoint02 + '/history',
+		data: 'usertoken='+localStorage.usertoken,
+		type: 'GET',
+		success: function(results){
+			
+			//clear table so it does not append multiple times
+			$('#HistBody').empty();
+
+			//console.log(results);
+			//loop to store array & append to table
+			for(var i =0; i < results.length; i++) {
+				//storing JSON object to var
+				var HistoryData = results[i];
+				//declaring vars for table data
+				var Weight = HistoryData.weight;
+				var Duration = HistoryData.duration;
+				var Intensity = HistoryData.intensity;
+				var Distance = HistoryData.distance;
+				var Transportation = HistoryData.transportation;
+				var co2 = HistoryData.c02;
+				var gas = HistoryData.gas;
+				var calories = HistoryData.calories;
+				
+				//Appending data to table
+				//$('#HistoryTable').html("<tr><th><b>" + "HistoryID" + "</b></th><th><b>" + "UserToken" + "</b></th><th><b>" + "SecretWord" + "</b></th><th><b>" + "GameResult" + "</b></th></tr>");
+				$('#HistBody').append("<tr><td>" + Weight + "</td><td>" + Duration + "</td><td>" + Intensity + "</td><td>" + Distance + "</td><td>" + Transportation + "</td><td>" + co2 + "</td><td>" + gas + "</td><td>" + calories + "</td></tr>");
+
+				//"<tr><th><b>" + "HistoryID" + "</b></th><th><b>" + "UserToken" + "</b></th><th><b>" + "SecretWord" + "</b></th><th><b>" + "GameResult" + "</b></th></tr>" +
+
+				//console.log(HistoryData.usertoken);
+
+				
+				//$('#div-history').append(array[0]);
+				//console.log(HistoryArray[i])
+
+			};
+		},
+		error: function(results){
+			console.log(results);
+		}
+
+	});
+
+}//end getHistory
+
 
 var leaderboardco2 = function(){
 
@@ -250,6 +297,7 @@ $(document).ready(function(){
 	
 	$(".nav-link").click(function(){
 		leaderboard();
+		getHistory();
 		$("#div-Leaderboard").show();
 		$("#div-Gas").hide(); 	/* hide all content-wrappers */
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
@@ -328,6 +376,7 @@ $(document).ready(function(){
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); /* show the chosen content wrapper */
 		leaderboard();
+		getHistory();
 	});
 
 	$("#btnDiscard").click(function(){
