@@ -44,13 +44,13 @@
     <!--Each individual item can be secured by adding the class: secured -->
         <ul class="navbar-nav ml-auto">
                 <li class="nav-item secured">
-                    <a class="nav-link bg-dark text-white" href="#div-form"><i class="fa fa-address-card"></i> Form </a>
+                    <a class="nav-link bg-dark text-white" href="#div-form"><i class="fa fa-address-card"></i> New Activity </a>
                 </li>
                 <li class="nav-item secured">
                     <a class="nav-link bg-dark text-white" href="#div-leaderboard"><i class="fa fa-bar-chart"></i> Leaderboard </a>
                 </li>
                 <li class="nav-item secured">
-                    <a class="nav-link bg-dark text-white" href="#div-history"><i class="fa fa-archive"></i> History</a>
+                    <a class="nav-link bg-dark text-white" href="#div-history"><i class="fa fa-archive"></i> Your History</a>
                 </li>
                 <li class="nav-item secured">
                     <a class="nav-link bg-dark text-white" href="#div-login"><i class="fa fa-sign-out"></i> Logout</a>
@@ -90,12 +90,27 @@
 		</div>
 
         <div class="col-md-8 content-wrapper " id="div-history"  style="display: none;">
-            <div class="list-group">
-                <div class="list-group-item list-group-item-action active"><b>A List of links </b></div>
-                <a class="list-group-item list-group-item-action">A <i class="fa fa-angle-double-right pull-right"></i></a>
-                <a class="list-group-item list-group-item-action">B <i class="fa fa-angle-double-right pull-right"></i></a>
-                <a class="list-group-item list-group-item-action">C <i class="fa fa-angle-double-right pull-right"></i></a>
-                </div>
+            <div>
+                <table class="table table-dark table-bordered table-hover" style="width:100%" id="PersonalHistory">
+                    <thead>
+                    <tr>
+                        <th><b>WeightInLbs<b></th>
+                        <th><b>Duration</b></th>
+                        <th><b>Intensity Level</b></th>
+                        <th><b>Distance</b></th>
+                        <th><b>Transportation Method</b></th>
+                        <th><b>Co2 Saved</b></th>
+                        <th><b>Gas Saved</b></th>
+                        <th><b>Calories Burned</b></th>
+                    </tr>
+                    </thead>
+                    <tbody id="HistBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
         </div>
 
 
@@ -143,20 +158,23 @@
                 </form>
 
             </div>
-		</div>
-	    <div class="col-md-8 content-wrapper " id="div-leaderboard" style="display: none;">
+        </div>
+    
+        <div class="col-md-8 content-wrapper " id="div-leaderboard" style="display: none;">
+            
 			<div>
                 <div>
-                    <input type="button" value="Co2Emissions" name="btnC02" id="btnCo2" class="btn btn-primary" style=" font-size:2em;width:33%; float: left;" >
-                    </div>
+                    <input type="button" value="Co2Emissions" name="btnC02" id="btnCo2" class="btn btn-sm btn-primary" style=" font-size:2em;width:33%; float: left;" >
+                </div>
+                
                 
                 <div>
-                    <input type="button" value="Gas Saved" name="btnGas" id="btnGas" class="btn btn-primary" style=" font-size:2em;width:33%;float: left;" >
+                    <input type="button" value="Gas Saved" name="btnGas" id="btnGas" class="btn btn-sm btn-primary" style=" font-size:2em;width:33%;float: left;" >
+                    
                     </div>
-               
 
                 <div>
-                    <input type="button" value="Calories Lost" name="btnCalories" id="btnCalories" class="btn btn-primary" style="font-size:2em;width:33%;float: left;" >
+                    <input type="button" value="Calories Lost" name="btnCalories" id="btnCalories" class="btn btn-sm btn-primary" style="font-size:2em;width:33%;float: left;" >
                     </div>
                     <br>
                   
