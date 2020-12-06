@@ -31,8 +31,41 @@ var SendTheForm = function(){
 		});
 	} //end
 
+var GetUserID = function(){
+	$.ajax({
+		url: endpoint02 + '/form',
+		type: 'GET',
+		data: 'usertoken='+localStorage.usertoken,
+		success: function(result){
+			let userid = result[0]['userid'];
+			//console.log(userid);
+			$('#userid').val(userid);
+		},
 
+		error: function(result){
+			//if error occurs
+			$('#userid').html('You did something wrong');
+		}
+	});
 
+}
+
+var DeleteActivity = function(){
+	let userid = $('#userid').val();
+	$.ajax({
+		url: endpoint02 + '/form',
+		type: 'DELETE',
+		data: 'userid='+userid,
+		success: function(result){
+			//NEED TO LET USER KNOW DATA WAS DELETED
+		},
+
+		error: function(result){
+			//if error occurs
+			//WHAT IF IT DOESNT DELETE CORRECTLY???
+		}
+	});
+}
 
 
 var leaderboardco2 = function(){
@@ -273,8 +306,16 @@ $(document).ready(function(){
 
 		if (distance != "" && distance != undefined && weight != "" && weight != undefined && duration != "" && duration != undefined && travel != undefined && travel != "" && intensity != undefined && intensity != "") {
 			SendTheForm();
+			GetUserID();
 			$("#div-form").hide();
 			$("#div-formresult").show();
+			//empty after submitting
+			var distance = $('#distance').val('');
+			var weight = $('#weight_lbs').val('');
+			var duration = $('#duration').val('');
+			var travel = $('#travel').val('');
+			var intensity = $('#intensity_level').val('');
+			var weight = $('#weight_lbs').val('');
 		}
 	});
 
@@ -287,6 +328,14 @@ $(document).ready(function(){
 		$("#div-Calories").hide(); 	/* hide all content-wrappers */
 		$("#div-Co2").hide(); /* show the chosen content wrapper */
 		leaderboard();
+	});
+
+	$("#btnDiscard").click(function(){
+		DeleteActivity();
+		$("#div-formresult").hide();
+		$("#div-Gas").hide(); 	/* hide all content-wrappers */
+		$("#div-Calories").hide(); 	/* hide all content-wrappers */
+		$("#div-Co2").hide(); /* show the chosen content wrapper */
 	});
 
 	$('#btnCo2').click(function(){
